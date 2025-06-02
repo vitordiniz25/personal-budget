@@ -1,17 +1,19 @@
-import { Sequelize } from "@sequelize/core";
-import { PostgresDialect } from "@sequelize/postgres";
-
+import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
+import { initModels } from "../models/initModels.js";
 
 dotenv.config();
 
-export const sequelize = new Sequelize({
-  dialect: PostgresDialect,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  port: 5432,
-  ssl: false,
-  clientMinMessages: "notice",
-});
+export const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    port: +process.env.DB_PORT,
+    dialect: "postgres",
+    logging: false,
+  }
+);
+
+initModels(sequelize);
