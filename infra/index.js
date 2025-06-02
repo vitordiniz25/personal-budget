@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
-import { initModels } from "../models/initModels.js";
+import { initModels } from "../models/init-models.js";
 
 dotenv.config();
 
