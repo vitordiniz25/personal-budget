@@ -6,7 +6,7 @@ import {
   updateEnvelope,
   deleteEnvelope,
   getTransactionsByEnvelope,
-} from "../controllers/envelopeController.js";
+} from "../controllers/envelope-controller.js";
 
 const router = Router();
 

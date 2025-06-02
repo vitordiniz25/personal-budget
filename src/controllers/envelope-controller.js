@@ -1,5 +1,5 @@
-// controllers/envelopeController.js
-import { Envelope, Transaction } from "../infra/index.js";
+import { Envelope } from "../models/envelope.js";
+import { Transaction } from "../models/transaction.js";
 
 /**
  * GET /envelopes

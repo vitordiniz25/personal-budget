@@ -2,7 +2,10 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import { sequelize } from "./infra/index.js";
+import { sequelize } from "./src/infra/index.js";
+
+import envelopeRoutes from "./src/routes/envelope-routes.js";
+import transactionRoutes from "./src/routes/transaction-routes.js";
 
 dotenv.config();
 
@@ -20,6 +23,9 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
+
+app.use("/envelopes", envelopeRoutes);
+app.use("/envelopes", transactionRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

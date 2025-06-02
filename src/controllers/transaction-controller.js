@@ -1,4 +1,6 @@
-import { Transaction, Envelope, sequelize } from "../infra/index.js";
+import { sequelize } from "../infra/index.js";
+import { Envelope } from "../models/envelope.js";
+import { Transaction } from "../models/transaction.js";
 
 /**
  * GET /transactions
