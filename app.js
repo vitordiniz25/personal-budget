@@ -7,6 +7,9 @@ import { sequelize } from "./src/infra/index.js";
 import envelopeRoutes from "./src/routes/envelope-routes.js";
 import transactionRoutes from "./src/routes/transaction-routes.js";
 
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./src/config/swagger.js";
+
 dotenv.config();
 
 const app = express();
@@ -14,6 +17,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.status(200).json("Welcome to the API!");
