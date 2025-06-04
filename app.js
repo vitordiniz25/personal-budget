@@ -25,7 +25,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use("/envelopes", envelopeRoutes);
-app.use("/envelopes", transactionRoutes);
+app.use("/transactions", transactionRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
